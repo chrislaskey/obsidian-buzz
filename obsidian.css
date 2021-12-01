@@ -1,8 +1,8 @@
 /*───────────────────────────────────────────────────────
-THINGS
+BUZZ
 Version 1.3.3
-https://github.com/colineckert/obsidian-things
-Created by @colineckert (GitHub)
+https://github.com/colineckert/obsidian-buzz
+Created by @chrislaskey (GitHub) based on Things theme by @colineckert (GitHub)
 MIT License
 ─────────────────────────────────────────────────────────
 For help and/or CSS snippets, thanks to:
@@ -73,11 +73,11 @@ For help and/or CSS snippets, thanks to:
   --h2-color: var(--blue);
   --h3-color: var(--blue);
   --h4-color: var(--yellow);
-  --h5-color: var(--red);
+  --h5-color: var(--orange);
   --h6-color: var(--text-muted);
 
-  --strong-color: var(--pink);
-  --em-color: var(--pink);
+  --strong-color: var(--purple);
+  --em-color: var(--purple);
 
   --font-normal: 16px;
   --font-small: 13px;
@@ -109,6 +109,7 @@ For help and/or CSS snippets, thanks to:
   --max-width: 85%; /* Amount of padding around the text, use 90% for narrower padding */
   --nested-padding: 3.5%; /* Amount of padding for quotes and transclusions */
   --input-height: 36px;
+  --preview-margin-left: 2rem;
 
   --font-todoist-title-size: 1em;
   --font-todoist-metadata-size: small;
@@ -174,7 +175,7 @@ body {
   --text-selection: hsla(var(--accent-h), 50%, calc(var(--base-l) - 20%), 30%);
   --text-highlight-bg: var(--light-yellow-highlighter);
   --text-highlight-bg-active: rgba(0, 0, 0, 0.1);
-  --code-color: #c7254e;
+  --code-color: #888;
 
   --background-primary: white;
   --background-primary-alt: hsl(var(--base-h), var(--base-s), var(--base-l));
@@ -276,7 +277,7 @@ body {
   --text-selection: hsla(var(--accent-h), 70%, 40%, 30%);
   --text-highlight-bg: var(--dark-blue-highlighter);
   --text-highlight-bg-active: rgba(255, 255, 255, 0.1);
-  --code-color: #c7254e;
+  --code-color: #888;
 
   --background-primary: hsl(var(--base-h), var(--base-s), var(--base-d));
   --background-primary-alt: hsl(
@@ -1322,6 +1323,7 @@ body.full-borders .side-dock-ribbon {
   padding-top: 0;
 }
 .workspace .markdown-preview-view {
+  margin-left: var(--preview-margin-left);
   padding: 0;
 }
 .workspace .markdown-preview-view .markdown-embed {
@@ -1812,6 +1814,7 @@ input[type='checkbox']:checked {
 }
 .nav-files-container {
   overflow-x: hidden;
+  padding-top: 15px;
   padding-bottom: 50px;
   padding-left: 5px;
 }
@@ -1902,7 +1905,7 @@ body:not(.is-grabbing) .nav-folder-title:hover {
 .nav-folder-title,
 .is-collapsed .search-result-file-title,
 .tag-pane-tag {
-  font-size: var(--font-adaptive-small);
+  font-size: var(--font-adaptive-normal);
   color: var(--text-muted);
 }
 .search-result-file-title {
@@ -2820,6 +2823,12 @@ ol > li {
 /* --------------- */
 
 .markdown-preview-view code {
+  color: var(--code-color);
+}
+
+.markdown-source-view .cm-s-obsidian code,
+.markdown-source-view .cm-s-obsidian .cm-inline-code,
+.markdown-source-view .cm-s-obsidian .cm-hmd-codeblock {
   color: var(--code-color);
 }
 
@@ -5085,8 +5094,8 @@ community:
 /* Style Settings */
 
 /* @settings
-name: Things Theme
-id: things-style
+name: Buzz Theme
+id: buzz-style
 settings:
     -
         id: features
@@ -5117,7 +5126,7 @@ settings:
         type: heading
         level: 2
         collapsed: true
-    - 
+    -
         id: text
         title: Text font
         description: Used in preview mode
@@ -5147,27 +5156,27 @@ settings:
         type: heading
         level: 2
         collapsed: true
-    - 
+    -
         id: font-normal
         title: Note titles, modals, and alt text size
         description: Font size in px (main editor/preview text size now controlled via slider in Appearance settings)
         type: variable-number
         default: 16
         format: px
-    - 
+    -
         id: font-small
         title: Sidebar and tag font size
         description: Font size in px of sidebar, tags, and small text
         type: variable-number
         default: 13
         format: px
-    - 
+    -
         id: line-height
         title: Body line height
         description: Line height of the main text
         type: variable-number
         default: 1.5
-    - 
+    -
         id: line-width
         title: Normal line width
         description: Number of characters per line
@@ -5187,19 +5196,19 @@ settings:
         type: heading
         level: 2
         collapsed: true
-    - 
+    -
         id: level-1-headings
         title: Level 1 Headings
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h1
         title: H1 font size
         description: Accepts any CSS font-size value
         type: variable-text
         default: 1.5em
-    - 
+    -
         id: h1-weight
         title: H1 font weight
         description: Accepts numbers representing the CSS font-weight
@@ -5211,31 +5220,31 @@ settings:
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h2
         title: H2 font size
         description: Accepts any CSS font-size value
         type: variable-text
         default: 1.2em
-    - 
+    -
         id: h2-weight
         title: H2 font weight
         description: Accepts numbers representing the CSS font-weight
         type: variable-number
         default: 600
-    - 
+    -
         id: level-3-headings
         title: Level 3 Headings
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h3
         title: H3 font size
         description: Accepts any CSS font-size value
         type: variable-text
         default: 1em
-    - 
+    -
         id: h3-weight
         title: H3 font weight
         description: Accepts numbers representing the CSS font-weight
@@ -5247,49 +5256,49 @@ settings:
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h4
         title: H4 font size
         description: Accepts any CSS font-size value
         type: variable-text
         default: 0.9em
-    - 
+    -
         id: h4-weight
         title: H4 font weight
         description: Accepts numbers representing the CSS font-weight
         type: variable-number
         default: 500
-    - 
+    -
         id: level-5-headings
         title: Level 5 Headings
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h5
         title: H5 font size
         description: Accepts any CSS font-size value
         type: variable-text
         default: 0.85em
-    - 
+    -
         id: h5-weight
         title: H5 font weight
         description: Accepts numbers representing the CSS font-weight
         type: variable-number
         default: 500
-    - 
+    -
         id: level-6-headings
         title: Level 6 Headings
         type: heading
         level: 3
         collapsed: true
-    - 
+    -
         id: h6
         title: H6 font size
         description: Accepts any CSS font-size value
         type: variable-text
         default: 0.85em
-    - 
+    -
         id: h6-weight
         title: H6 font weight
         description: Accepts numbers representing the CSS font-weight
@@ -5308,13 +5317,13 @@ settings:
         type: variable-select
         default: default
         options:
-            - 
+            -
                 label: Default
                 value: default
-            - 
+            -
                 label: Pointer
                 value: pointer
-            - 
+            -
                 label: Crosshair
                 value: crosshair
     -
